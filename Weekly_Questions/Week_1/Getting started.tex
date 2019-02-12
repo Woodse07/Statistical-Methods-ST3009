@@ -1,0 +1,79 @@
+\documentclass[12pt]{report}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+
+\title{ST3009 Weekly Questions #1}
+\author{Seamus Woods \\ 15317173}
+\date{28/01/2019}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Question 1}
+A substitution cypher is derived from orderings of the first 10 lette
+rs of the
+alphabet. How many ways can the 10 letters be ordered if each letter appears exactly once
+and: 
+\newline
+\newline
+(a) There are no other restrictions? 
+\newline
+At the beginning we have the choice of 10 letters, we pick one and have 9 left since each letter must be unique, pick another and we have 8.. etc. So the the number of ways we can order 10 letters if each letter only appears once is 10 * 9 * 8.. or 
+10! = 3,628,800  
+\newline
+\newline
+(b) The letters E and F must be next to each other (but in any order)?
+\newline
+The way I thought about this is we can just have the letters E and F act as one letter, but we have to remember they can be arranged as either EF or FE, so we have A, B, C, D, EF, G, H, I, J and A, B, C, D, FE, G, H, I, J. The number of ways we can order these letters with each letter only appearing once is 9! * 2 = 725,760.
+\newline
+\newline
+(c) How many different letter arrangements can be formed from the letters BANANA ?
+\newline
+If order mattered, we would have 6! = 720 arrangements of these letters, but order does matter here since the letter arangements must be different. How we deal with this is we take the duplicate letters, get the number of ways they can be arranged and divide the total amount of arangements by that number. It's better to understand this by labelling the letters. For example B A $N_0$ A $N_1$ A and B A $N_1$ A $N_0$ A is counted in 6!, but we want to disregard these since they aren't different. So the answer will be $\frac{6!}{3!*2!}$ = 60 (3 As and 2 Ns).
+\newline
+\newline
+(d) How many different letter arrangements can be formed by drawing 3 letters from ABCDE?
+\newline
+Again, order does not matter here, so we will have $\frac{5*4*3}{3!}$ = 10 arrangements. If order didn't matter we would have 5 * 4 * 3 = 60 but this would include 6 combinations for each unique group of letters. (eg) ABC, ACB, BAC, BCA, CAB, CBA.
+
+\section{Question 2}
+A 6-sided die is rolled four times.
+\newline
+\newline
+(a) How many outcome sequences are possible, where we say, for in stance, that the outcome is 3, 4, 3, 1 if the first roll landed on 3, the second on 4, the
+third on 3, and the fourth on 1?
+\newline
+Every time we roll the dice, there are 6 possible outcomes. If we were to roll the dice 4 times, we would have $6^4$ possible outcomes, or 1296 possibilities. 
+\newline
+\newline
+(b) How many of the possible outcome sequences contain exactly two 3's?
+\newline
+In order to figure this out, it's easiest to first find out what kind of combinations will have exactly two 3s. This can be done with ${4 \choose 2}$ = 6. Since we don't want any more 3s we only have 5 possible combinations left on the dice, and we need to roll another two times for each combination in orderto find out how many combinations will have exactly two 3s with four rolls. so we have 6 * $5^2$ = 150 combinations. 
+\newline
+\newline
+(c) How many contain at least two 3's?
+\newline
+The method I used for this was to find out how many combinations have exactly two 3's, how many have exactly three 3's, how many have all 3s and adding those all up. So basically same as last question but with a bit more work. So we already know from the last question we have 150 combinations for exactly two 3's. For exactly three 3's we have ${4 \choose 3}$ * 5 = 20 and for all threes it will just be 1. Add all of these up and we get 171 combinations with at least two 3's.
+
+\section{Question 3}
+You are counting cards in a card game that uses two decks of cards. Each deck has 4 cards (the ace from each of 4 suits), so there are 8 cards total. Cards are only distinguishable based on their suit, not which deck they came from.
+\newline
+\nelwine
+(a) In how many distinct ways can the 8 cards be ordered?
+\newline
+8! possible combinations, but since order matters we must divide by all combinations of duplicates, so the answer will be $\frac{8!}{2!*2!*2!*2!}$ = 2,520.
+\newline
+\newline
+(b) You are dealt two cards. How many distinct pairs of cards can you be dealt? Note: the order of the two cards you are dealt does not matter.
+\newline
+For every suit there is 3 different suits and order doesn't matter so we end up with $\frac{4*3}{2!}$ = 6
+\newline
+\newline
+(c) You are dealt two cards.  Cards with suits hearts and diamonds are considered “good” cards. How many ways can you get two “good” cards? Order does not matter.
+\newline
+Out of the 8 cards we have 2 diamonds and 2 hearts, 4 in total, so we get $\frac{4*3}{2!*2!}$ = 3. These combinations are [Diamond, Diamond], [Diamond, Heart] and [Heart, Heart]
+
+\end{document}
