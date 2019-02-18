@@ -1,0 +1,136 @@
+\documentclass[12pt]{report}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+
+\title{ST3009 Weekly Questions 3}
+\author{Séamus Woods \\ 15317173}
+\date{18/02/2019}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Question 1}
+Say we roll a fair 6-sided die six times. Using the fact that each roll is an independent random event, what is the probability that we roll:
+\newline
+\newline
+(a) The sequence 1,1,2,2,3,3?
+\newline
+Since each roll is an independent event, we have a $\frac{1}{6}$ chance of rolling a specific number. Therefore the chance of rolling the sequence above, we have $\frac{1}{6}$ * $\frac{1}{6}$ * $\frac{1}{6}$ * $\frac{1}{6}$ * $\frac{1}{6}$ * $\frac{1}{6}$ = $\frac{1}{46656}$ = 0.0000214.
+\newline
+\newline
+(b)A three exactly 4 times?
+\newline
+To roll a three exactly 4 times have $6 \choose 4$ multiplied by the remaining rolls where they can't be a three, so $5^2$, which gives us 375. Divide this by the amount of possibilities gives us $\frac{375}{46656}$ = 0.00803.
+\newline
+\newline
+(c) A single 1.
+\newline
+Same method as last questions.. $6 \choose 1$ * $5^5$ (5 remaining rolls) = 18,750. $\frac{18,750}{46,656}$ = 0.401.
+\newline
+\newline
+(d) One or more 1's
+\newline
+To calculate this, we want to work out how many possible ways can we get exactly one 1, exactly two 1's, exactly three 1's etc. Doing this we get, $6 \choose 1$ * $5^5$ + $6 \choose 2$ * $5^4$ + $6 \choose 3$ * $5^3$ + $6 \choose 4$ * $5^2$ + $6 \choose 5$ * $5$ + $6 \choose 6$, which sums up to give us 31,031 possibilities. $\frac{31,031}{46,656}$ = 0.665.
+
+
+\section{Question 2}
+Suppose one 6-sided and one 20-sided die are rolled. Let A be the event that the first die comes up 1 and B that the sum of the dice is 2. Are these events independent? Explain using the formal definition of independence.
+\newline
+\newline
+Two events E and F are independent if the order in which they occur doesn't matter.
+\begin{center}
+$P(E \cap F) = P(E)P(F)$
+\end{center}
+Let $P(E) = \frac{1}{6}$, the probability of the first die coming up 1. Let $P(F) = \frac{1}{120}$, the probability of the sum of the dice being 2 (there is only one combination for this..[1,1]). The equation $\frac{1}{6} * \frac{1}{120} = \frac{1}{120}$ does not hold true, therefore these events are dependent.
+
+
+\section{Question 3}
+Say a hacker has a list of \textit{n} distinct password candidates, only one of which will successfully log her into a secure system.
+\newline
+\newline
+(a) If she tries passwords from the list uniformly at random, deleting those passwords that do not work, what is the probability that her first successful login will be (exactly) on her \textit{k}-th try?
+\newline
+The probability that her first successful login will be exactly on her\textit{k}-th try can be calculated using the following equation..
+\begin{center}
+$(\frac{\textit{n}-1}{\textit{n}}) * (\frac{\textit{n}-2}{\textit{n}-1}) * ... * (\frac{1}{\textit{n} - (\textit{k}+1)})$
+\end{center}
+With the first expression being for \textit{k} = 1, the second \textit{k} = 2, and the last \textit{k} = \textit{k}.
+\newline
+\newline
+(b) When \textit{n} = 6 and \textit{k} = 3 what is the value of this probability?
+\newline
+Subbing into the above formula we get...
+\begin{center}
+$(\frac{5}{6}) * (\frac{4}{5}) * (\frac{1}{4})$
+\end{center}
+Giving us 0.1667.
+\newline
+\newline
+(c) Now say the hacker tries passwords from the list at random, but does not delete previously tried passwords from the list. She stops after her first successful login attempt. What is the probability that her first successful login will be (exactly) on her \textit{k}-th try?
+\newline
+Basically instead of decrementing \textit{n} for every attempt, we keep it constant. This gives us
+\begin{center}
+$(\frac{\textit{n}-1}{\textit{n}}) * (\frac{\textit{n}-1}{\textit{n}}) * ... * (\frac{1}{\textit{n}})$
+\end{center}
+Where the last expression is the \textit{k}-th expression.
+\newline
+\newline
+(d) When \textit{n} = 6 and \textit{k} = 3 what is the value of this probability ?
+\newline
+Hint: use the fact that the outcome of each try is an independent random event (since passwords are selected uniformly at random at each attempt)
+\newline
+Subbing into our new formula, we get
+\begin{center}
+$(\frac{5}{6}) * (\frac{5}{6}) * (\frac{1}{6})$
+\end{center}
+Giving us 0.1157.
+
+
+\section{Question 4}
+A website wants to detect if a visitor is a robot. They decide to deploy three CAPTCHA tests that are hard for robots and if the visitor fails in one of the tests, they are flagged as a possible robot. The probability that a human succeeds at a single test is 0.95, while a robot only succeeds with probability 0.3. Assume all tests are independent.
+\newline
+\newline
+(a) If a visitor is actually a robot, what is the probability they get flagged?
+\newline
+The chance a robot will pass a single test is 0.3 and there are three tests. If all three tests are passed, the robot will not be flagged. We can calculate $P(not flagged)$ by $0.3 * 0.3 * 0.3 = 0.027$, since we know all events are independent. Therefore $P(flagged) = 1 - P(not flagged) = 1 - 0.027 = 0.973$.
+\newline
+\newline
+(b) If a visitor is human, what is the probability they get flagged?
+\newline
+Same principle here. The probability a human will pass a single test is 0.95. $P(not flagged) = 0.95 * 0.95 * 0.95 = 0.857$. There $P(flagged) = 1 - P(not flagged) = 1 - 0.857 = 0.143$.
+\newline
+\newline
+The fraction of visitors on the site that are robots is $\frac{1}{10}$. Suppose a visitor gets flagged. What is the probability that visitor is a robot? Hint: use Bayes Rule.
+\newline
+\begin{center}
+Bayes Rule: $P(E|F) = \frac{P(F|E)P(E)}{P(F)}$
+\end{center}
+
+\begin{center}
+ $P(F) = P(F|E)P(E) + P(F|{E}^\mathsf{c})P({E}^\mathsf{c})$
+\end{center}
+
+I think it is easiest at first to label what everything is. 
+\newline
+$P(E|F)$ = Probability user is a robot given they are flagged (Unknown).
+\newline
+$P(F|E)$ = Probability of user being flagged given they are a robot (0.973).
+\newline
+$P(E)$ = Probability user is a robot (0.1).
+\newline
+$P(E^\mathsf{c})$ = Probability user is a human (0.9).
+\newline
+$P(F|E^\mathsf{c})$ = Probability user is flagged given they are human (0.143).
+\newline
+$P(F)$ = Probability of being flagged (Unknown).
+
+Since we don't know $P(F)$ we must sub in $P(F|E)P(E) + P(F|{E}^\mathsf{c})P({E}^\mathsf{c})$. Subbing all of our values into Bayes Rule we get...
+\begin{center}
+$P(E|F) = \frac{0.973*0.1}{(0.973*0.1)+(0.143*0.9)}$
+\end{center}
+Giving us 0.4305 for the probability that the user is a robot given they are flagged.
+
+\end{document}
