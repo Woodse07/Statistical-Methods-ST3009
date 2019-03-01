@@ -1,0 +1,94 @@
+\documentclass[12pt]{report}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+
+\title{ST3009 Weekly Questions 5}
+\author{Séamus Woods \\ 15317173}
+\date{28/02/2019}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Question 1}
+A box contains 5 red and 5 blue marbles. Two marbles are withdrawn randomly. If they are the same color, then you win \$1.10; if they are different colors, then you lose \$1.00. Calculate:
+\newline
+\newline
+(a) The expected value of the amount you win.
+\newline
+The expected value of a discrete random variable $X$ taking values in $\{x_1, x_2,...,x_n\}$ is defined to be:
+\begin{center}
+$E[X] = \sum\limits_{i=1}^n x_i P(X = x_i)$
+\end{center}
+First lets calculate the chance of winning. The chance we pick two balls of the same color: $\frac{5}{10} * \frac{4}{9} = 0.2222$. Now we can calculate the expected value as $(0.2222 * 0.1) + ((1-0.2222) * -0.1) = -0.05556$.
+\newline
+\newline
+(b) The variance of the amount you win.
+\newline
+Let $X$ be a random variable with mean $\mu$. The variance of $X$ is 
+\begin{center}
+$Var(X) = E[(X - \mu)^2]$.
+\end{center}
+Using this formula we can calculate the variance of the amount we win, using the mean we calculated in the last question. $Var(X) = (1-(-0.05556))^2 * (-0.05556) + (0 - (-0.05556))^2 * -0.05556$
+
+
+
+\section{Question 2}
+Suppose you carry out a poll following an election. You do this by selecting $n$ people uniformly at random and asking whether they voted or not, letting $X_i = 1$ if persion $i$ voted and $X_i = 0$ otherwise. Suppose the probability that a person voted is $0.6$.
+\newline
+\newline
+(a) Calculate $E[X_i] and Var(X_i)$.
+\newline
+Answer here..
+\newline
+\newline
+Let $Y = \sum\limits_{i=1}^n X_i$.
+\newline
+(b) What is $E[Y]$? Is it the same as $E[X]$ or different, and why?
+\newline
+Answer here..
+\newline
+\newline
+(c) What is $E[\frac{1}{n} Y]$?
+\newline
+Answer here..
+\newline
+\newline
+(d) What is the variance of $\frac{1}{n} Y$ (express in terms of $Var(X)$) ?
+\newline
+Answer here..
+\newline
+\newline
+Hints: Use linearity of the expecation and the fact that people are sampled independently.
+
+
+
+\section{Question 3}
+Suppose that 2 balls are chosen without replacement from an urn consisting of 5 white and 8 red balls. Let $X_i$ equal 1 if the $i$'th ball selected is white, and let it equal 0 otherwise. 
+\newline
+\newline
+(a) Give the joint probability mass function of $X_1$ and $X_2$.
+\newline
+Answer here..
+\newline
+\newline
+(b) Are $X_1$ and $X_2$ independent? (Use the formal definition of independence to determine this).
+\newline
+Answer here..
+\newline
+\newline
+(c) Calculate $E[X_2]$.
+\newline
+Answer here..
+\newline
+\newline
+(d) Calculate $E[X_2] X_1 = 1$.
+
+
+
+
+
+\end{document}
