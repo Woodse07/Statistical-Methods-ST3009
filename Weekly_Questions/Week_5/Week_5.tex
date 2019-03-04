@@ -23,16 +23,22 @@ The expected value of a discrete random variable $X$ taking values in $\{x_1, x_
 \begin{center}
 $E[X] = \sum\limits_{i=1}^n x_i P(X = x_i)$
 \end{center}
-First lets calculate the chance of winning. The chance we pick two balls of the same color: $\frac{5}{10} * \frac{4}{9} = 0.2222$. Now we can calculate the expected value as $(0.2222 * 0.1) + ((1-0.2222) * -0.1) = -0.05556$.
+First lets calculate the chance of winning. The chance we pick two balls of the same color: $\frac{5}{10} * \frac{4}{9} = 0.2222$. Since there are two different colours we can multiply this by 2.. 0.4444. Now we can calculate the expected value as $(0.4444 * 1.1) + ((1-0.4444) * -1) = -0.06676$.
 \newline
 \newline
 (b) The variance of the amount you win.
 \newline
 Let $X$ be a random variable with mean $\mu$. The variance of $X$ is 
 \begin{center}
-$Var(X) = E[(X - \mu)^2]$.
+$Var(X) = E[X^2] - E[X]^2$.
 \end{center}
-Using this formula we can calculate the variance of the amount we win, using the mean we calculated in the last question. $Var(X) = (1-(-0.05556))^2 * (-0.05556) + (0 - (-0.05556))^2 * -0.05556$
+Using this formula we can calculate the variance of the amount we win, using the mean we calculated in the last question. 
+\newline
+$E[X^2] = (0.4444 * (1.1)^2) + ((1-0.4444) * (-1)^2) = 1.093324$
+\newline
+$E[X]^2 = (-0.06676)^2 = 0.00444889.$
+\newline
+$E[X^2] - E[X]^2 = 1.093324 - 0.00444889 = 1.08887511.$
 
 
 
@@ -40,16 +46,22 @@ Using this formula we can calculate the variance of the amount we win, using the
 Suppose you carry out a poll following an election. You do this by selecting $n$ people uniformly at random and asking whether they voted or not, letting $X_i = 1$ if persion $i$ voted and $X_i = 0$ otherwise. Suppose the probability that a person voted is $0.6$.
 \newline
 \newline
-(a) Calculate $E[X_i] and Var(X_i)$.
+(a) Calculate $E[X_i]$ and $Var(X_i)$.
 \newline
-Answer here..
+$E[X_i] = 0.6 * 1 + 0.4 * 0 = 0.6... 0.6n$
+\newline
+$Var(X_i) = E[X_i^2] - E[X_i]^2$..
+\newline
+$((0.6 * (1)^2) + (0.4 * (0)^2)) - (0.6n)^2$..
+\newline
+$0.6n - (0.6n)^2$
 \newline
 \newline
 Let $Y = \sum\limits_{i=1}^n X_i$.
 \newline
 (b) What is $E[Y]$? Is it the same as $E[X]$ or different, and why?
 \newline
-Answer here..
+$E[Y]$ is $E[X_1 + X_2 + X_3 + ... + X_n]$.
 \newline
 \newline
 (c) What is $E[\frac{1}{n} Y]$?
@@ -72,20 +84,65 @@ Suppose that 2 balls are chosen without replacement from an urn consisting of 5 
 \newline
 (a) Give the joint probability mass function of $X_1$ and $X_2$.
 \newline
-Answer here..
+First thing to understand here is when exactly will $X_1$ and $X_2$ be equal to 1. Since we know that $X_i$ will be 1 if the i'th ball is white, we know $X_1$ will be 1 if the first ball is white, else 0, and $X_2$ will be 1 if the second ball is white, else 0. So we work out what the chances are of all possible combinations of $X_1$ and $X_2$. $X_1$ and $X_2$ being both 0 would mean that both balls are red, the probability of this is $\frac{8}{13} * \frac{7}{12} = \frac{14}{39}$. Continuing this process we get:
+\newline
+\begin{center}
+$\frac{8}{13} * \frac{5}{12} = \frac{10}{39}$...when $X_1 = 0$, $X_2 = 1$.
+\end{center}
+\begin{center}
+$\frac{5}{13} * \frac{8}{12} = \frac{10}{39}$...when $X_1 = 1$, $X_2 = 0$.
+\end{center}
+\begin{center}
+$\frac{5}{13} * \frac{4}{12} = \frac{5}{39}$...when $X_1 = 1$, $X_2 = 1$.
+\end{center}
+Using these results we can calculate our joint probability mass function:
+\begin{center}
+\begin{tabular}{ |c|c|c|c|}
+\hline
+& $X_1 = 0$ & $X_1 = 1$ & $P(X_2 = x)$ \\
+\hline 
+$X_2 = 0$ & $\frac{14}{39}$ & $\frac{10}{39}$ & $\frac{24}{39}$ \\
+\hline
+$X_2 = 1$ & $\frac{10}{39}$ & $\frac{5}{39}$ & $\frac{15}{39}$\\
+\hline
+$P(X1 = x)$ & $\frac{8}{13}$ & $\frac{5}{13}$ & 1\\
+\hline
+\end{tabular}
+\end{center}
+\quad
 \newline
 \newline
 (b) Are $X_1$ and $X_2$ independent? (Use the formal definition of independence to determine this).
 \newline
-Answer here..
+Formal definition of independence: $P(X \cap Y) = P(X)P(Y)$. Two events are said to be independent of each other if the probability of one event occuring has no impact on the probability of the other event occuring. Since these events do affect the probability of each other they are not independent. Lets take an example.. looking up at our table above we see that the $P(X_1=0 \cap X_2=0) = \frac{14}{39}$, and according to the formal definition of independence, this should be the same as $P(X_1=0)P(X_2=0)$, but we see that this is not the case.. this is because after every event the ball is not replaced.. affecting the probability of the next event. 
 \newline
 \newline
 (c) Calculate $E[X_2]$.
 \newline
-Answer here..
+As states in the first question, $E[X] = \sum\limits_{i=1}^n x_i P(X = x_i)$. 
+\begin{center}
+$E[X_2] = (1 * \frac{5}{39}) + (0 * \frac{10}{39}) + (1 * \frac{10}{39}) + (0 * \frac{14}{39})$
+\end{center}
+\begin{center}
+$E[X_2] = \frac{5}{39} + \frac{10}{39} = \frac{15}{39}$
+\end{center}
+\begin{center}
+$E[X_2] = 0.384615$
+\end{center}
+\quad
 \newline
 \newline
-(d) Calculate $E[X_2] X_1 = 1$.
+(d) Calculate $E[X_2|X_1 = 1]$.
+This is basically the same as the previous question, only we are given that $X_1 = 1$, so we can disregard any parts of our calculation were $X_1 = 0$.
+\begin{center}
+$E[X_2] = (1 * \frac{5}{39}) + (0 * \frac{10}{39})$
+\end{center}
+\begin{center}
+$E[X_2] = \frac{5}{39}$
+\end{center}
+\begin{center}
+$E[X_2] = \frac{\frac{5}{39}}{\frac{5}{13}} = 0.3333$..(Since we are not concerned with the possibilites where $X_1 = 0$)
+\end{center}
 
 
 
