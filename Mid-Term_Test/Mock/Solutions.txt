@@ -29,3 +29,33 @@ Event E is first coint heads..
 Event F1 is second coin heads..
 Event F2 is second coin tails..
 P(E) = P(E n F1) + P(E n F2) = (0.5*0.5) + (0.5*0.5) = 0.5 
+
+
+
+
+QUESTION 2:
+
+2 Bags
+Bag A contains 3 white, 1 black
+Bag B contains 1 white, 3 black
+Toss a coin to choose A or B
+Draw 5 balls, with replacement.
+We observe 4 white balls and 1 black ball, what is probability we chose bag A..(Bayes Rule)
+Sample space.. 4^4 = 256
+P(E|F) = P(F|E)P(E) / P(F).
+P(E|F).. probability we chose bag A given 4 white and 1 black. 
+P(F|E).. probability we chose 4 white and 1 black given bag A.. (81/256=0.3164)
+P(E).. probability of choosing bag A.. (0.5)
+P(F).. probability of choosing 4 white and 1 black.. don't know this..
+
+** NOTE: P(F) = P(F|E)P(E) + P(F|Ec)P(Ec) **
+P(F|Ec).. probability of choosing 4 white and 1 black given bag B.. (3/256=0.0117)
+P(Ec).. probability of choosing bag B.. (0.5)
+
+P(E|F) = (0.3164*0.5) / ((0.3164*0.5) + (0.0117*0.5))
+P(E|F) = 0.9643
+
+
+
+
+
