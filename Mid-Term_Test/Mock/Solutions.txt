@@ -1,5 +1,31 @@
 QUESTION 1:
 
-Sample Space: The set of all possible outcomes or results of an experiment.
+Sample Space:
+The set of all possible outcomes or results of an experiment.
 
+Indicator Random Variable: 
+Take value 1 if event E occurs and 0 if event E doesn't occur.
 
+Probability Mass Function:  
+A function that gives the probability that a discrete random variable is exactly equal to 
+some value. 
+
+Conditional Probability of an Event:
+The probability that event E occurs *given* that event F has already occurred. P(E|F).
+P(E|F) = P(E n F) / P(F)
+
+Bayes Theorem:
+P(E|F) = P(F|E)P(E) / P(F)
+P(E).. chance of rain tomorrow, with no extra info.
+P(F|E).. probability of a cloudy day before rain
+P(E|F).. updated probability of rain tomorrow after observing clouds today
+P(F).. chance of a cloudy day, with no extra info. 
+
+Marginalization:
+Refers to "summing out" the probability of a random variable X given the joint probability
+distribution of X with other variables.
+Roll two coins.. what is the probability the the first coin is heads?
+Event E is first coint heads..
+Event F1 is second coin heads..
+Event F2 is second coin tails..
+P(E) = P(E n F1) + P(E n F2) = (0.5*0.5) + (0.5*0.5) = 0.5 
