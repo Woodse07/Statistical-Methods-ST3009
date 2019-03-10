@@ -1,0 +1,122 @@
+QUESTION 1:
+
+We roll a red die and a green die..
+
+Sample space: 6^2 = 36.. assuming both dice have 6 sides.. {(1,1),(1,2),...,(6,6)}
+
+
+Probability that number on green die is larger than number on red die..?
+if we roll 1 on green we have 0 chance of being larger than number on red..
+if we roll 2 we have 1/6 chance of being larger than number on red.. 
+3 we have 2/6
+4 we have 3/6
+5 we have 4/6
+6 we have 5/6
+0 + (1/6) + (2/6) + (3/6) + (4/6) + (5/6) = (15/6) / 6 = 0.41666
+
+
+Define what it means for two event E and F to be independent..
+Event E and F are indepenent if event E taking place does not affect the probability of 
+event F taking place and vice versa.. P(E n F) = P(E)P(F)
+
+
+Let event E be that the sum of the dice equals 2 or 3.. 
+Let event F be that the sum of the dice equals 3..
+Are E and F independent? Explain with reference to definition above.
+E and F are not independent since event E taking place has an affect on the probability that event F will take place. 
+
+E = {(1,1),(1,2),(2,1)}
+F = {(1,2),(2,1)}
+P(E) = 3/36 = 1/12
+P(F) = 2/36 = 1/18
+P(E n F) = P({(1,2),(2,1)}) = 1/18
+P(E)P(F) = 1/12 * 1/18 = 0.0046
+P(E n F) \= P(E)P(F) therefore events are not independent..
+
+
+
+
+
+QUESTION 2:
+
+Bayes Rule: P(E|F) = P(F|E)P(E) / P(F)
+
+1% of computers infected with a virus..
+Test gives possitive result 90% of the time with virus..
+Test gives negative result 99% of the time without virus..
+Suppose the test is possitive for a computer..
+Probability that the computer has the virus..?
+
+P(E|F) = Prob. of having virus given tested positive..
+P(F|E) = Prob. of testing positive given having virus..(0.9)
+P(E) = Prob. of having virus..(0.01)
+P(F) = Prob. of testing positive..
+P(F) = P(F|E)P(E) + P(F|Ec)P(Ec)
+P(F|Ec) = Prob. testing positive given no virus..(1-0.99=0.01)
+P(Ec) = Prob. of not having the virus.. (1-0.01=0.99)
+
+P(E|F) = ((0.9)*(0.0.01)) / ((0.9)*(0.0.01)) + ((0.01)*(0.99)) = 0.476
+
+
+
+
+
+QUESTION 3:
+
+Player bets 1 euro..
+roll two dice.. 
+if sum is 7, player wins k euro..
+else lose their 1 euro..
+
+Define expectation and variance of a discrete random variable:
+For random variable X taking values x1,...,xn, the expected value is E[X] = x1*P(X=x1)+...+
+xn*P(X=xn).
+The variance is Var(X) = E[X^2] - E[X]^2
+
+
+What is the expected reward in this game?
+First lets see what the probability of rolling a sum of 7 is..
+{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)}.. 6/36 chance of getting a sum of 7.
+E[X] = (30/36 * -1) + (6/36 * k)
+E[X] = -30/36 + 6k/36
+
+
+What value of k will make the game fair..?
+6k/36 - 30/36 = 0
+6k/36 = 30/36
+6k = (30/36)*36
+k = 30/6
+k = 5.
+Var(X) = E[X^2] - E[X]^2
+E[X^2] = (30/36 * -1^2) + (6/36 * 5^2) = 5
+E[X]^2 = 0^2 = 0
+Var(X) = 5 - 0 = 5.
+
+
+For two independent random variables X and Y, show that Var(X+Y) = Var(X) + Var(Y)..
+not sure how to do this..
+
+
+Suppose you play the game 2 times in a row with k = 5..
+What is the expected value of the reward..?
+Let X be the reward the first time the game is played and Y the reward the second time 
+it is played..
+E[X+Y] = E[X]+E[Y] = 0 + 0 = 0.
+Var(X+Y) = Var(X)+Var(Y) = 5 + 5 = 10.
+After 100 plays the reward is still expected to be 0 bu the variance is 500.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
