@@ -58,7 +58,7 @@ P(E|F) = 0.9643
 
 
 
-Question 3:
+QUESTION 3:
 
 Expected Value of a Random Variable:
 E[X] = sumof{n}{i=1} xi P(X = xi) 
@@ -79,6 +79,24 @@ defined as Cov(X, Y) = E[X - ux)(Y - uy)]
 Correlation:
 The correlation between X and Y is defined as Corr(X, Y) = Cov(X, Y) / sqrt(Var(X)Var(Y))
 
+
+
+
+QUESTION 4:
+
+1 bag
+30 balls:
+	10 red
+	20 blue
+Take 8 balls with replacement..
+P(3 red, 5 blue)
+
+Should be:
+	(1/3)^3 * (2/3)^5 = 0.004877
+
+
+Now without replacement..
+(10 choose 3) * (20 choose 5) / (30 choose 8) = 0.31787
 
 
 
