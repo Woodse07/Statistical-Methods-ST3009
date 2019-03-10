@@ -1,0 +1,63 @@
+QUESTION 1:
+
+String of n bits sent accross a lossy link. How many ways can 2 bit errors occur when n = 3?
+(3 choose 2) = 3
+
+How many ways can letters MISSISSIPPI be rearranged?
+1 M, 4 I, 4 S, 2 P.
+11! / (4!4!2!) = 34650
+or..
+(11 choose 4) * (7 choose 4) * (3 choose 2) = 34650
+
+Straight flush consists of 5 cards in order, all of the same suit.. (eg) 2,3,4,5,6 of clubs
+How many straight flushes are possible?
+I guess we can work out how many possible flushes of one suit, and then just multiply by 4..
+{(2,3,4,5,6), (3,4,5,6,7), (4,5,6,7,8)...(10,J,Q,K,A)} would be set of flushes..
+10 elements in this set, multiplied by 4 is 40.
+
+
+
+
+QUESTION 2:
+
+Six people in an elevator at ground floor..
+10 upper floors..
+Each person gets off at a floor uniformly at random..
+Probability that no two people get off at the same floor?
+
+Basically, let each of these six people represent a number, whats the probability that no two
+of those numbers are the same..
+10*9*8*7*6*5 = 151200 / 10^6 = 0.1512
+
+
+
+
+QUESTION 3:
+
+Random variable X has P(X=x)=x/15 for x=1,2,3,4,5
+P(X=x) = 0 for all other values. 
+
+What is the mean and variance of X?
+
+mean is also referred to as the Expected value of a random variable..
+E[X] = sumof{n}{i=1} xi*P(X=xi)
+
+E[X] = 1*1/15 + 2*2/15 + 3*3/15 + 4*4/15 + 5*5/15 = 3.6667
+
+Var(X) = E[X^2] - E[X]^2..
+E[X^2] = (1^2)*1/15 + (2^2)*2/15 + (3^2)*3/15 + (4^2)*4/15 + (5^2)*5/15 = 15 
+E[X]^2 = 3.6667^2 = 13.446889
+Var(X) = 15 - 13.446889 = 1.554111
+
+
+You take a 6-sided die and roll it
+If you roll 6, stop, else repeat..
+
+What is the distribution of the number of times you roll the die?
+Is this the same as probability of rolling 6 on the n-th roll..?
+If so solution is P(X=n) = (5/6)^(n-1) * (1/6)
+
+What is the expected number of rolls?
+E[X] = (1/6)*1 + (5/6)(1/6)*2 + (5/6)^2(1/6)*3.. etc
+
+
