@@ -1,0 +1,88 @@
+QUESTIONS 1:
+
+Two random variables X and Y take values {1,2,...,n}.
+
+Give definition of conditional probability P(Y=y|X=x).
+P(Y=y|X=x) = P(Y=y and X=x) / P(X=x)
+
+Prove the marginilization property that P(X=x) = sumof{n}{i=1} P(X=x and Y=i)
+sumof{n}{i=1} P(X=x and Y=i) = sumof{n}{i=1} P(Y=i|X=x)P(X=x) = P(X=x)
+
+Using marginilization property above, prove that sumof{n}{i=1} P(Y=i|X=x) = 1
+sumof{n}{i=1} P(Y=i|X=x) = 1
+(sumof{n}{i=1} P(Y=i and X=x)) / P(X=x) = 1
+P(X=x)/P(X=x) = 1
+1 = 1
+
+Bag of insects:
+	10 crickets
+	5 spiders
+Draw two insects without replacement..
+Given the second insect was a spider, what is the probability that the first insect was also
+a spider..?
+
+Let random variable:
+	X1=1 if we draw a spider first, and 0 otherwise. 
+	X2=1 if we draw a spider second, and  0 otherwise.
+
+P(X1=1|X2=1) = P(X1=1 and X2=1)/P(X2=1) = 0.2856
+P(X1=1 and X2=1) = 5/15 * 4/14 = 0.0952
+P(X2=1) = P(X2=1 and X1=1) + P(X2=1 and X1=0) = 5/15 * 4/14 + 10/15 * 5/14 = 0.3333
+
+
+
+
+
+QUESTION 2:
+
+Bayes Rule: P(E|F) = P(F|E)P(E) / P(F)
+
+48% support candidate T..
+52% support candidate C..
+75% supporters of T answered truthfully..
+25% supporters of T lied..
+100% supporters of C answered truthfully..
+Suppose a person answers that they support candidate C..
+Probability that they actually support candidate T..?
+
+P(E|F).. Supports T given they answered C..
+P(F|E).. Answered C given they support T..(0.25)
+P(E).. Supports T..(0.48)
+P(F).. Answered C..
+P(F) = P(F|E)P(E) + P(F|Ec)P(Ec)
+P(F|Ec).. Answered C given they support C..(1)
+P(Ec).. Supports C..(0.52)
+
+P(E|F) = (0.25*0.48) / ((0.25*0.48) + (1*0.52)) = 0.1875
+
+
+
+
+
+QUESTION 3:
+
+5 people play odd-man-out..
+Each person flips a coin..
+If one coin is different to all others, that person pays.. (1H 4T)
+Else everyone flips again..
+
+Probability that one person's coint comes up different to all others?
+Outcomes = 2^5 = 32
+Out of this we have 10 possibilities that one is different than the rest.. {(H,T,T,T,T),
+(T,H,T,T,T),...,(T,H,H,H,H),(H,T,H,H,H)..etc}
+10/32 = 0.3125
+
+Define the expectation of a random variable..
+E[X] = sumof{n}{i=1} xi*P(X=xi)
+
+Expected number of times they must flip before they know who should pay?
+let random variable X be the number of rounds in the game..
+E[X] = 1*0.3125+2*(1-0.3125)+3*(1-0.3125)^2+...
+
+Write a matlab simulation of this game that ouptus the number of flips made..
+p = 0.3125
+count = 1
+while (randp > p), count=count+1; end
+disp(count)
+
+
