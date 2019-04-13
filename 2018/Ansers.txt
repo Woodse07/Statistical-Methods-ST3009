@@ -1,0 +1,55 @@
+QUESTION 1:
+You buy once share of stock in company C for 10 euro.
+Each day price of C either increases by 1 euro with probability p,
+or decreases by 1 euro with probability 1-p.
+These changes day to day are independent. 
+You sell your share if it gains 2 euro (reaches 12 euro).
+
+(i)
+What is probability that you will sell your share exactly 4 days after you buy it?
+This is only possible if it goes down 1 out of the 4 days, and up 3 of the 4 days..
+So we have p^3 * (1-p).
+
+Real answer is 2 * p^3 * (1-p).. why?
+
+(ii)
+What is the probability that you sell your share at least 4 days after you buy it?
+So 4 days or more?
+P(1 day) = 0
+P(2 days) = p^2
+P(3 days) = 0
+
+So..
+1-p^2
+
+-----------------------------------------------------------------------------------------------
+Suppose now that the daily change in price is observed to be related to the change in price
+in company D. 
+Probability C increases by 1 euro is 0.2 when D increases, 
+0.1 otherwise.
+-----------------------------------------------------------------------------------------------
+
+(iii)
+State the definition of confitional probability.
+
+P(E|F) = P(E n F)/P(F)
+
+
+(iv) 
+Describe how marginalisation can be used to calculate the probability of an event E based
+on knowledge of the conditional probabilities P(E|F1), P(E|F2) and P(E|F3) plus the probailities
+P(F1), P(F2) and P(F3) when events F1, F2, F3 are mutually exclusive and F1 U F2 U F3 = sample space
+
+P(E) = P(E|F1)P(F1) + P(E|F2)P(F2) + P(E|F3)P(F3)
+
+
+(v)
+Suppose that the probability that D increases on a given day is 0.5.
+Probability that C increases on that day?
+
+0.5 * 0.2 = 0.1..?
+
+P(C increase) = P(C increase | D increase)P(D increase) + P(C increase|D decrease)P(D decrease)
+	      = (0.2 * 0.5) + (0.1 * 0.5)
+	      = 0.1 + 0.05
+	      = 0.15
