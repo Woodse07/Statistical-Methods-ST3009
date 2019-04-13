@@ -1,0 +1,104 @@
+QUESTION 1:
+Let X and Y be independent random variables.
+Takes values in the set {1,2,3}.
+Let V = 2X + 2Y.
+Let W = X - Y.
+
+
+(a)
+Assume P(X = x) and P(Y = y) are non-zero for any x,y elements of {1,2,3}.
+Can V and W be independent?
+
+Independence: P(V=v ∩ W=w) = P(V=v)P(W=w)
+
+V = v = 10 when (X=2, Y=3) and (X=3, Y=2)
+(i.e.) P(V=10) = P(X=2 and Y=3) + P(X=3 and Y=2)
+
+W = w = 0 then X-Y = 0 when X=Y.
+(i.e.) P(W=0) = P(X=1 and Y=1) + 
+				P(X=2 and Y=2) +
+				P(X=3 and Y=3).
+
+Since P(X=x) and P(Y=y) are non-zero for any x,y elements of {1,2,3}, it follows that P(V=10)
+!= 0 and P(W=0) != 0.
+
+But: P(V=10 and W=0) = 0
+
+Since when V=10 we cannot have W=0, and so P(v=10 and W=0) != P(V=10)P(W=0)
+
+(i.e.) V and W are not independent.
+
+
+(b)
+Compute the PMF of V, E[V] and var(V).
+The pair (X,Y) has sample space S = {(1,1),(1,2),(1,3),...,(3,1),(3,2),(3,3)}
+|S| = 9.
+For each of these possible pairs of values (X,Y), the value of V = 2(X+Y) is as follows:
+
+	X=1	X=2	X=3
+Y=1	4	6	8
+Y=2	6	8	10
+Y=3	8	10	12
+
+and so V has sample space {4,6,8,10,12}.
+Since X and Y are uniformly distributed, each pairs of values (X,Y) has the same probability:
+1/|S| = 1/9.
+
+Therefore:
+P(V=4) =1/9, 
+P(V=6) =2/9, 
+P(V=8) =3/9,
+P(V=10)=2/9,
+P(V=12)=1/9.
+
+
+The expectation E[V] is:
+E[V] = 5*P(V=4) + 6*P(V=6) + 8*P(V=8) + 10*P(V=10) + 12*P(V=12)
+     = 4*(1/9) + 6*(2/9) + 8*(3/9) + 10*(2/9) + 12*(1/9)
+     = 8.
+
+The variance is:
+var(V) = E[V^2] - E[V]^2
+not sure how below is calculated..
+var(V) = (4-8)^2*(1/9) + (6-8)^2*(2/9) + (10-8)^2*(2/9) + (12-8)^2*(1/9)
+       = (16/3).
+
+
+(c)
+Compute the joint PMF of V and W.
+For each pair of value pairs of values (X,Y), the value pair(V,W) is:
+
+	X=1	X=2	X=3
+Y=1     (4,0)	(6,1)	(8,2)
+Y=2	(6,-1)	(8,0)	(10,1)
+Y=3	(8,-2)	(10,-1)	(12,0)
+
+Each pair of values (X,Y) has the same probability 1/9 and the value of (V,W) is different
+for each value of (X,Y), so the probability of each of the pairs of values (V,W) in the above
+table is 1/9. The probability of other pairs of values is zero.
+
+
+(d)
+Compute E[V|W > 0]
+Outcomes where W > 0:
+{(6,1), (8,2), (10,1)}
+
+And so,
+P(V=6|W>0) = 1/3
+P(V=8|W>0) = 1/3
+P(V=10|W>0) = 1/3
+
+Therefore:
+E[V|W>0] = 6*P(V=6|W>0) + 
+	   8*P(V=8|W>0) +
+	   10*P(V=10|W>0).
+
+	 = 6*(1/3) +
+	   8*(1/3) + 
+	   10*(1/3)
+	
+	 = (24/3)
+	
+	 = 8.
+
+ 
