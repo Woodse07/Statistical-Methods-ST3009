@@ -1,0 +1,125 @@
+QUESTION 1:
+
+Solve for x..
+-5x+20=25
+-5x=5
+x=-1
+
+solve for x..
+5(2x+1)+3=10
+10x+5+3=10
+10x=2
+x=0.2
+
+solve for x and y..
+x-y=0 and x+y=1
+x=0.5 and y=0.5
+
+is the following equation true..?
+x/2 + y/2 + z/2 = (x+y+z)/2
+yes..
+10/2 + 20/2 + 30/2 = (10+20+30)/2
+30 = 30
+
+Simplify..
+(xy+xz)/x
+y+z
+
+Define the term random variables and give an example..
+A random variable maps from the sample space of random experiment to a real number.. 
+(e.g.) X may take value 1 when a coin comes up heads and value 0 if coin comes up tails..
+
+What is the probability mass fucntion of a discrete random variable..?
+A function that defined the probabability that random variable X will be exactly equal to a certain value.. (e.g.) chance X will take on value 1 is 0.5 for coin toss..
+
+let X and Y be independent random variables..
+takes values in the set {-1,0,1}..
+X and Y are uniformly distributed on {-1,0,1}..(prob. of each value occuring is the same)
+let V = 2X+2Y
+calculate E[X] and E[Y].
+E[X] = -1*(0.333) + 0*(0.333) + 1*(0.333) = 0
+E[Y] = E[X]
+E[V] = 0
+
+What does it mean for two random variables to be independent..?
+Two random variables are independent if P(X=x and Y=y) = P(X=x)P(Y=y) for all x and y..
+
+Are V and X independent..?
+P(V n X) = P(V)P(X)
+They are not independent..
+P(X=-1 and V=4) = P(V=4|X=-1)P(X=-1)=0 and P(X=-1)=1/3 and P(V=4)=P(X=1 and Y=1)=1/9
+So P(X=-1 and V=4)=- is not equal to P(X=-1)P(V=4)=1/3*1/9..
+
+
+
+
+
+QUESTION 2:
+
+Conditional probability of a random event..
+P(E|F)=P(E n F) / P(F)
+
+Bayes rule:
+P(E|F) = P(F|E)P(E) / P(F)
+
+2 websites A and B..
+A takes 60% of all bookings..
+B takes 40%..
+75% of bookings made on A results in positive reviews..
+90% of bookings made on B results in positive reviews..
+Given a booking received a posistive review, probability that booking was made on site B..
+
+P(E|F).. booking made on B given positive review..
+P(F|E).. positive review given booking made on B..(0.9)
+P(E).. booking made on B..(0.4)
+P(F).. positive review..
+P(F) = P(F|E)P(E) + P(F|Ec)P(Ec)
+P(F|Ec) = possitive review given booking made on A..(0.75)
+P(Ec) = booking made on A..(0.6)
+
+P(E|F) = (0.9*0.4) / ((0.9*0.4) + (0.75*0.6))
+P(E|F) = 0.44
+
+
+
+
+
+question 3:
+
+Data stored accross 10 disks..
+to read a file data needs to be successfully ready from any 3 of 10 disks..
+
+A server selects 3 disks independently and uniformly at random..
+Prob. that disk 1 is read..?
+No. of ways we can select 3 of 10 disks without replacement is 10*9*8 = 720..
+suppose disk 1 is the first disk we read..
+(1,2,3),(1,2,4),(1,3,5).. etc
+basically slot 1 is a constant and the other 2 slots have a choice of 9 slots, and then 8..
+so there are 1*9*8=72 combinations for this.. 
+What if disk 1 is in the 2nd position.. or 3rd?
+Same thing.. so 72*3=216 is total combinations of picking disk 1..
+probability of this.. 216/720 = 0.3
+
+Suppose now that disk 1 and 2 cannot be read together..
+prob of reading disk 1 now..?
+basically we have 1 less variable to work with.. so 1*8*7*3=168..
+sample space is different now.. 
+reading 1 on its own.. 168
+reading 2 on its own.. 168
+reading neither.. 8*7*6=336
+Sample space = 672..
+168/672=0.25
+
+Each disk fails independently with prob. of 0.01..
+3 disks need to be read successfully to reconstruct a file..
+When server reads 3 disks what is prob that the file fails to be reconstructed..
+prob of no disks failing.. (1-0.01)^3
+prob one or more failing.. 1- (1-0.01)^3 = 0.03
+
+Prob. when the server now reads 4 disks..?
+prob of no disks failing.. (1-0.01)^4
+prob of 1 disk failing.. 4*0.01*(1-0.01)^3
+prob of none failing + prob of 1 failing = prob of 3 successfully reading.. which is what 
+we need.. (1-0.01)^4 + 4*0.01*(1-0.01)^3
+1 - this is the chance of it failing.. 
+1 - (1-0.01)^4 + 4*0.01*(1-0.01)^3 = 0.0006

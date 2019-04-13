@@ -194,5 +194,56 @@ Bootstrapping:
 
 
 
+QUESTION 3:
+Diana needs to cover more than 500m in 10s.
+If motorcycle has Z pounds of rocket fuel to start,
+travels distance of X = 50*sqrt(Z)m in 10 seconds.
+
+(a)
+Amount of rocket fuel Z is a random variable uniformly distributed over [50,150].
+Compute the CDF of the distance X.
+
+CDF:
+F_x(x) = P(X <= x) = P(50*sqrt(Z) <= x) = P(Z <= (x/50)^2)
+
+ 		   0 => if x < 50*sqrt(50)
+=> ((x/50)^2-50)/100 => if 50*sqrt(50) <= x <= 50*sqrt(150)
+		   1 => if x > 50*sqrt(150)
+
+
+(b)
+Probability that Diana breaks the world record on any given trial?
+
+P(X>500) = 1 - F_x(500) = 1 - 0.5 = 0.5
+
+
+(c)
+Suppose Diana is allowed to take a total of n trials in order to try and break the world record.
+(n is an element of {1,2,3,...}).
+The amount of rocket fuel at the start is independent from trial to trial. 
+How large does n have to be in order for Diana to have a 90%+ chance of breaking the world
+record over the n trials?
+
+Let Y denote the max distance travelled by her motorcycle.
+We have that Y = max(X1, X2,...,Xn), where Xi are independent and equally distributed random
+variables.
+Xi is the distance travelled in trial i.
+
+F_y(y) = P(Y <= y) = P(max(X1,X2,...,Xn) <= y)
+       = P(X1 <= y and X2 <= y and .. Xn <= y)
+       = P(X1 <= y) P(X2 <= y) ... P(Xn <= y) 
+       = F_x(y)^n
+
+Therefore,
+P(Y > 500) = 1 - F_y(500) = 1 - F_x(500)^n = 1 - 0.5^n
+
+Minimum n for which 1-0.5^n >= 0.9 is n = 4.
+
+
+
+
+
+
+
 
 
