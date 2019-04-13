@@ -101,4 +101,98 @@ E[V|W>0] = 6*P(V=6|W>0) +
 	
 	 = 8.
 
- 
+
+
+QUESTION 2:
+Perform a survery of n people.
+Each respondent tosses a fair coin.
+	Head:  'yes' by default.
+	Tails: truthfully 'yes' or 'no'.
+
+Assosicate with i'th respondent a random variable X_i.
+X_i takes value 1 when person's truthful answer is 'yes'.
+X_i takes value 0 otherwise.
+
+Assume that the X_i, i=1,2,...,n are independent and identically distributed with P(X_i=1)=p.
+
+(a)
+Let random variable Y_i take value 1 when the i'th respondent answers 'yes' and 0 otherwise.
+Give an expression for E[Y_i] in terms of E[X_i].
+Using this, rearrange to get E[X_i] in terms of E[Y_i].
+Hint: Use the linearity of expectation.
+
+P(Y_i=1) = 0.5 + (1-0.5)p (Probability coin comes up heads (auto 'yes') and probability truthful
+answer is yes (P(X_i=1)=p))
+
+P(Y_i=0) = 1 - P(Y_i=1) = 1 - (0.5 + (1-0.5)p)
+
+Therefore:
+E[Y_i] = 1*P(Y_i=1) + 0*P(Y_i=0)
+       = 0.5 + (1-0.5)p
+
+Now E[X_i] = 1*P(X_i=1) + 0*P(X_i=0) 
+	   = p
+
+so..
+E[Y_i] = 0.5 + (1-0.5)E[X_i]
+
+Rearranging, we get:
+E[X_i] = 2E[Y_i] - 1
+
+
+(b)
+Let random variable Z = sumof(n)(i=1)*Y_i be the number of respondents who answer 'yes'.
+Write an expression for the probability that out of n respondents z respond 'yes'.
+
+Let's try and example first and then backtrack to find expression..
+Let n = 10 and z = 7.
+What's the probability that out of 10 respondents, 7 responded 'yes'?
+(Keep in mind all are independent..)
+
+P(Y_i=1) = 0.5 + (0.5)p  	(responded yes)
+P(Y_i=0) = 1 - (0.5 + (0.5)p)	(responded no)
+
+Basically proability we get exactly 7 'yes' and 3 'no'?
+
+P(Z=7) = (choose(10)(7)) (0.5+(0.5)p)^(7) (1-(0.5+(0.5)p))^(3)
+
+P(Z=z) = (choose(n)(z)) (q)^(z) (1-q)^(n-z)
+Where q = 0.5 + (0.5)p
+
+
+(c)
+Suppose we use Z/n as an estimate of q = E[Y_i].
+n is the total number of respondents.
+For two random variables W and V we have E[W+V] = E[W] + E[V].
+(i)Show that E[Z/n] = q.
+
+(ii)Using Chebyshev's inequality explain the weak law of large numbers + the behaviour of 
+    |Z/n - q| as n becomes large.
+
+(i) todo.....
+
+(ii) Chebyshev's Inequality: 
+     For X a random variable with mean E(X) = μ and variance var(X) = σ^2:
+     P(|X-μ|>=k) <= σ^2/k^2 for all k > 0.
+     Allows us to calculate confidence intervals given the mean and variance of a random variable. 
+
+     Weak Law of Large Numbers:
+     For equation above, X concentrated around the mean as N increases
+     The probability will tend to 0 as N tends to infinity..
+
+(d)
+Using Z/n as an estimate of q, explain how you could use bootstrapping to estimate a confidence
+interval for the accuracy of this estimate.
+
+Bootstrapping: 
+	Uses multiple measurements of X through resampling to estimate its distribution and then
+	from this to estimate confidence interval [a,b]. This requires sufficiently many 
+	observations of X that the estimate of its distribution is accurate, but does not require
+	that the distribution is Normal. Again, confidence interval is only an approximation whose
+	accuracy depends on the size of N. Gives full distribution of sample mean. Need access
+	to all N measurements. Known as the 'quick and dirty' method.
+
+
+
+
+
