@@ -1,0 +1,262 @@
+QUESTION 1:
+Suppose a continuos random variable X has probability density function:
+	 0.. x <= 0 
+f(x) = { 1.. 0 < x <= 1
+	 0.. x > 1
+
+(a)
+Calculate P(0 <= X <= 0.25)
+
+Answer:
+The area under the PDF curve between 0 and 0.25, which is 0.25.
+
+
+(b)
+Calculate P(0 <= X <= 0.75)
+
+Answer:
+Same concept, so 0.75.
+
+
+(c)
+Calculate P(0.5 <= X <= 2)
+
+Answer:
+Area under the PDF curve is 0.5(0.5-1), between 1 and 2 is 0.. so 0.5
+
+
+(d)
+Calculate the CDF for X.
+
+Answer:
+	 0.. x <= 0
+F(x) = { x.. 0 < x <= 1
+	 1.. x > 1
+
+
+
+QUESTION 2:
+Suppose a continuous valued random variable X has probability density function:
+	 0... x <= 0
+f(x) = { 2x.. 0 < x <= 1
+	 0... x > 1
+Note: The graph for this would look like a triangle.. so area under the curve is area of triangle.
+      Really helps to draw this stuff out.
+Area of triangle = 1/2(b)*(h)
+
+(a)
+Calculate P(0 <= X <= 0.25)
+
+Answer:
+(0.125)(0.5) = 0.0625
+
+
+(b)
+Calculate P(0 <= X <= 0.75)
+
+Answer:
+(0.375)(1.5) = 0.5625
+
+
+(c)
+Calculate P(0.5 <= X <= 2)
+
+Answer:
+Anything past 1 will be 0, so we're concerned with the area under the curve between 0.5 and 1.
+We can split this into the area of a rectangle and a triangle as such:
+Reactangle: (0.5)(1) = 0.5
+Triangle: (0.25)(1) = 0.25
+Add these together to get our area under the curve.. 0.5 + 0.25 = 0.75.
+
+
+(d)
+Calculate the CDF for X.
+
+Answer:
+	 0.... x <= 0
+F(x) = { x^2.. 0 < x <= 1
+	 1.... x > 1
+
+
+
+QUESTION 3:
+Suppose a continuous valued random variable X has probability density function:
+	 
+	 0..... x <= 0
+	 4x.... 0 < x <= 0.5
+f(x) = {
+	 4-4x.. 0.5 < x <= 1
+	 0..... x > 1
+
+(a)
+Calculate P(0 <= X <= 0.25)
+
+Answer:
+(0.125)(1) = 0.125
+
+
+(b)
+Calculate P(0 <= X <= 0.75)
+
+Answer:
+Split into two parts for two equations.. 0 to 0.5, and 0.5 to 0.75:
+
+0 to 0.5 is easy.. just area of triangle..
+(0.25)(2) = 0.5
+
+0.5 to 0.75 is a little trickier, but just the same as the question above with splitting it
+into a rectangle and triangle..
+Rectangle = (0.25)(1) = 0.25
+Triagngle = (0.125)(1) = 0.125
+Add them together.. 0.25 + 0.125 = 0.375
+
+And finally get the total.. 0.5 + 0.375 = 0.875.
+
+
+(c)
+P(0.5 <= X <= 2)
+
+Answer:
+First of all, we know anything after 1 will be 0, so we just need to find the area between
+0.5 and 1.
+
+(0.25)(2) = 0.5.
+
+
+
+QUESTION 4:
+Suppose a coninuous valued random variable X has the probability density function:
+	 0.. x <= 0
+f(x) = { 1.. 0 < x <= 1
+	 0 x > 1
+Note: I assume this was supposed to be x or 2x for 0 < x <= 1 if the next question assume
+      we're finding the area of a triangle..?
+(a)
+Calculate the integral{1}{0}(xdx)
+Hint: Recall that this is the area under a triangle with base 1 and height 1.
+
+Answer:
+Area under a triangle with base 1 and height 1 is (0.5)(1) = 0.5.
+
+
+(b)
+What is the expected value of X?
+
+Answer:
+E[X] = integral{infin}{-infin}(x*f(x)dx) = integral{1}{0}(xdx)
+since f(x) = 0 for x < 0 and x > 1. 
+This is simple the area under a triangle with base 1 and height 1.
+E[X] = 0.5.
+
+
+
+QUESTION 5:
+The CDF of a continuous valued random variable X is 
+	 0.. x <= 0
+F(x) = { x.. 0 < x <= 1	
+	 1.. x > 1
+
+(a)
+Calculate P(X <= 0.25)
+
+Answer:
+F(0.25) = 0.25
+
+
+(b)
+Calculate P(0 <= X <= 0.25)
+
+Answer: 
+F(0.25) - F(0)= 0.25 - 0 = 0.25
+
+
+(c)
+Calculate P(0.5 <= X <= 0.75)
+
+Answer:
+F(0.75) - F(0.5) = 0.75 - 0.5 = 0.25
+
+
+(d)
+Calculate P(2 <= X <= 3)
+
+Answer:
+F(3) - F(2) = 1 - 1 = 0
+
+
+(e)
+Sketch a graph of the CDF.
+
+Answer:
+**IN COPY**
+	
+
+
+QUESTION 6:
+The CDF of a continuous valued random variable X is
+	 0......... x <= 0
+F(x) = {
+	 1-e^(-x).. x >= 0
+
+(a)
+Calculate P(X <= 1)
+
+Answer:
+F(1) = 1-e^(-1) = 0.6321
+
+
+(b)
+Calculate P(0 <= X <= 1)
+
+Answer:
+F(1) - F(0) = 0.6321 - 0 = 0.6321
+
+
+(c)
+Calculate P(1 <= X <= 2)
+
+Answer:
+F(2) - F(1) = 0.8646 - 0.6321 = 0.23256
+
+
+(d)
+Sketch a graph of the CDF.
+
+Answer:
+**IN COPY**
+
+
+
+QUESTION 7:
+You carry out a poll asking 'n' eskimos selected independently and uniformly at random from the
+population whether they like warm weather. 
+Let Xi be 1 if eskimo i likes warm weather and 0 otherwise. 
+You calculate the sample average X = (1/n)*sumof{n}{i=1}(Xi) and use this as an estimate of the
+probability that an eskimo likes warm weather.
+
+(a)
+State the central limit theorem.
+
+Answer:
+The central limit theorem establishes that, in some situations, when independent random variables
+are addred, their properly normalized sum tends towards a normal distribution, even if the 
+original vairables themselves are not normally distributed.
+
+
+(b)
+How might the central limit theorem be used to obtain a confidence interval or X as an estimate
+of the probability that an eskimo likes warm weather?
+
+Answer:
+todo..
+
+(c)
+Discuss the assumptions made:
+
+Answer:
+todo..
+
+
+
+
+
