@@ -1,0 +1,139 @@
+QUESTION 1:
+Suppose two random variables X and Y have PDFs fx(x) = e^(-x), fy(y) = 0.5e^(-0.5y) and 
+conditional PDF f_y|x(y|x) = e^(-|x-y|).
+Using Bayes Rule for PDFs write an expression for f_x|y(x|y).
+
+Answer:
+
+Bayes Rule => P(E|F) = P(F|E)P(E)/P(F)
+
+f_x|y(x|y) = f_y|x(y|x) * fx(x) / fy(y)
+	   = e^(-|x-y|) * e^(-x) / 0.5e^(-0.5y)
+
+
+
+QUESTION 2:
+(a)
+Give Bayes rule for PDFs.
+
+Answer:
+f_x|y(x|y) = f_y|x(y|x) * fx(x) / fy(y)
+
+
+(b)
+Explain the difference between the maximum likelihood and the MAP estimate of a random variable.
+
+Answer:
+Difference between MAP and Maximum Likelihood really kicks in when we only have a small 
+number of observations, yet still need to make a predictions. Our prior beliefs are then
+especially important. As number N of observations grows, impact of prior on posterior tends
+to decline.
+
+
+(c)
+Suppose after observing data the likelihood of parameter θ is L(θ) = e^-(θ-1)^2.
+What is the maximum likelihood estimate of θ?
+
+Answer:
+The value of θ which maximises e^-(θ-1)^2 is θ=1.
+
+
+
+QUESTION 3:
+Suppose an urn contains balls and fraction θ of the balls are white and the rest are red.
+I draw 'n' balls, with replacement, from the urn and let X be the number of white balls observed.
+
+(a)
+Give an expression for the likelihood P(X=x|θ).
+
+Answer:
+P(X=x|θ) = {n}choose{x}*θ^x*(1-θ)^(n-x)
+
+
+(b)
+Suppose n=100 and I observe 25 white balls. 
+What is the maximum likelihood for θ? (Use MATLAB to plot the value of P(X=x|θ) for a range θ)
+
+Answer:
+Maximum likelihood for θ is θ=0.25.
+
+
+(c)
+Suppose now that before drawing the balls my prior probability was 
+P(θ) = (1/20*pi)*e^-(100*(θ-0.5)^2) 
+and for simplicity assume that P(X=25) = 1.
+Give an expression for the posterior P(θ|X=x).
+
+Answer:
+P(θ|X=x) = P(X=x|θ)P(θ) / P(X=x)
+	 = {n}choose{x}*θ^x*(1-θ)^(n-x) * (1/20*pi)*e^-(100*(θ-0.5)^2) / 1
+
+
+(d)
+What is the MAP estimate for θ (Use MATALB to plot the value of P(θ|X=x) for a range of values
+of θ.)
+Discurss why it differs from the maximum likelihood estimate.
+
+Answer:
+MAP estimate is approximately θ=0.32. The prior says that we believe θ=0.5 with high probability.
+After observing the data we change our belief to a lower value, but because of the prior it's 
+still higher than the maximum likelihood. As the number n of balls drawn is increased, the two
+estimates will, however, converge to the same value. 
+
+
+
+QUESTION 4:
+We observe data (x^(i), y^(i)), i=1,2,...,n from n people, where x^(i) is the persons height
+and y^(i) is the persons weight.
+
+(a)
+Explain how to construct a linear regression model for this data. 
+
+Answer:
+In a linear regression model we predict that the persons weight y given their height x is 
+h_θ(x) = θx, where θ is an unknown parameter (a single value since there is a single input x).
+To estimate the parameter we use the value which minimises the cost function:
+J(θ) = (1/m)*sumof{m}{i=1}((h_θ(x^(i)) - y^(i))^2).
+
+
+(b)
+Suppose we suspsect that the weight of a person is not linearly related to their height but
+rather is related to the square root of their height. Explain how to modify the linear regression
+model to accommmodate this.
+
+From the solutions:
+We extend the input to be vector x = [height, sqrt(height)]^T. The prediction is now:
+h_θ(x) = (θ^T)*x 
+and we select the parameter vector which minimises J(θ).
+
+
+
+QUESTION 5:
+Explain the principle of the gradient descent algorithm. 
+Accompany your explanation with a diagram and pseudo-code.
+
+Answer:
+The task is to find the parameter vector θ which minimises the function J(θ). 
+The basic idea is to iteratively update θ such that each update makes J(θ) smaller.
+One way to generate an update that does this is to use the gradient of J(θ). 
+The gradient gives us the slope of a line just touching the curve J(θ)..(e.g.)
+
+**INSERT DIAGRAM HERE**	
+
+And so moving down this slop causes J(θ) to decrease.
+The resulting algorithm is:
+
+- Start with some θ
+- Repeat {
+	for j=0 to n {tempj := θj - alpha(sig/sig*θj)*J(θ)}
+	for j=0 to n {θj := tempj}	
+  }
+
+Where n is the number of elements in vector θ and alpha > 0 is the learning rate.
+If alpha is selected too large then the algorithm may not converge, and if too small then 
+convergence will be slow. 
+
+
+
+
+
