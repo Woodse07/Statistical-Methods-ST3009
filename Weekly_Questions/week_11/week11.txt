@@ -1,0 +1,83 @@
+QUESTION 1:
+We want to predict whether a person likes a movie.
+We know whether the person is male of female.
+From a population survey we know that 60% of people like the movie and of these 20% are males.
+You may assume that 50% of the population is male. 
+Use Bayes Rule to construct a simple movie prediction classifier.
+
+Answer:
+P(Male) = 0.5
+P(Female) = 0.5
+P(LikeMovie) = 0.6
+P(NotLikeMove) = 0.4
+P(LikeMovie|Male) = 0.2
+P(LikeMovie|Female) = 0.8
+P(NotLikeMovie|Male) = 0.8
+P(NotLikeMovie|Female) = 0.2
+
+From solutions:
+Let X=1 if the person liked the movie and 0 otherwise.
+Let Y=1 if they are male and 0 otherwise.
+
+By Bayes Rules:
+
+P(X=1|Y=y) = P(Y=y|X=1)P(X=1) / P(Y=y)
+P(X=1|Y=1) = (0.2 * 0.6) / 0.5 = 0.24
+P(X=0|Y=1) = 1 - 0.24 = 0.76
+P(X=1|Y=0) = (0.8 * 0.6) / 0.5 = 0.96
+P(X=0|Y=0) = 1 - 0.96 = 0.04
+
+Knowing whether a person is male of female then we can predict X=0 if Y=1 since
+P(X=0|Y=1) > P(X=1|Y=1)
+And predict X=1 if Y=1 since 
+P(X=1|Y=1) > P(X=0|Y=1)
+
+
+
+QUESTION 2:
+Consider now a different movie prediction task.
+Suppose training data is available which consists of pairs (xi, yi), i=1,2,...,n, where yi=1
+if the ith person like the movie and 0 otherwise, and xi=1 if the ith person is male and 0
+otherwise.
+Describe how to construct a logisitc regression classifier for this task.
+
+Answer:
+A logistic classifier uses the model:
+P(Y=1|X=x) = 1/(1+exp(-z))
+with z = θx, θ a parameter.
+Given an input x, it calculates P(Y=1|X=x) and P(Y=0|X=x) and its predictions is Y=1 if
+P(Y=1|X=x) > P(Y=0|X=x) and Y=0 otherwise.
+
+The calssifier selects θ so as to maximize the log-likelihood of the training data. 
+Letting d=(xi, yi), i=1,2,..,n denote the training data, the likelihood of this data is:
+P(D=d|θ) = prodof{n}{i=1}((1/1+exp(-θxi)^yi * (exp(-θxi)/1+exp(-θxi))^(1-yi)))
+
+
+
+QUESTION 3:
+Logistic regression classification is often said to be most effective for linearly seperable 
+data. 
+Explain what this means for a classifier with two inputs.
+What can happen if the data is not linearly seperable?
+
+Answer:
+Let the classifier inputs be x1 and x2.
+Gather these together into vector x->. 
+Logisitic regression works by thresholding an intermediate variable z(x->) = θ1x1 + θ2x2.
+When z(x->) > 0, the logistic classified predicts an output of 1, otherwise 0.
+θ1x1 + θ2x2 = 0 defines a line, namely x1 = cx2 with x = -θ2 / θ1, in two dimensions.
+Points x-> for which z(x->) > 0 lie on one size of this line and points x-> for which 
+z(x->) < 0 lie on the other side.
+2D data is linearly seperable when a line exists so that points x-> on one side of the line
+have one label, and points x-> on the other side of the line have another label. 
+So when data is linearly seperable, a well-designed logistic classifier should be able to 
+predict the labels with high accuracy.
+When the data is not linearly sperable, it may be impossible for a logistic classifier to give
+accurate predictions.
+
+Note:
+This thinking carries over directly to higher dimensions where:
+z(x->) = sumof{m}{i=1}(θixi) and m > 2.
+This now defines a plane that divides the space into two halves. 
+
+
