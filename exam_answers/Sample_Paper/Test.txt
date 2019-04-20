@@ -1,0 +1,213 @@
+QUESTION 1:
+Let X and Y be independent random variables that take values in the set {1,2,3}.
+Let V = 2X + 2Y.
+Let W = X - Y.
+
+(a)
+Assume P(X=x) and P(Y=y) are non-zero.
+Can V and W be independent?
+
+Answer:
+Independent if the follwing equation is true:
+P(X=x and Y=y) = P(X=x)P(Y=y)
+
+Let's take x=1 and y=1..
+V = 2(1) + 2(1) = 4
+
+and x=2 and y=3
+W = (2) - (3) = -1
+
+We cannot have P(V=4 and W=-1) therefore = 0
+But P(X=x) and P(Y=y) are non-zero..
+
+Therefore P(X=x and Y=y) != P(X=x)P(Y=y).. events are not independent.
+
+
+(b)
+Compute the PMF of V, E[V] and var(V).
+
+V(X=1, Y=1) = 2(1) + 2(1) = 4
+V(X=1, Y=2) = 2(1) + 2(2) = 6
+V(X=1, Y=3) = 2(1) + 2(3) = 8
+V(X=2, Y=1) = 2(2) + 2(1) = 6
+V(X=2, Y=2) = 2(2) + 2(2) = 8
+V(X=2, Y=3) = 2(2) + 2(3) = 10
+V(X=3, Y=1) = 2(3) + 2(1) = 8
+V(X=3, Y=2) = 2(3) + 2(2) = 10
+V(X=3, Y=3) = 2(3) + 2(3) = 12
+
+PMF_V(4) = 1
+PMF_V(6) = 2
+PMF_V(8) = 3
+PMF_V(10) = 2
+PMF_V(12) = 1
+
+E[V] = (1/n) * sumof{n}{i=1}(Vi)
+     = (4 + 6 + 6 + 8 + 8 + 8 + 10 + 10 + 12) / 9
+     = 8
+
+Var(V) = E[V^2] - E[V]^2
+
+E[X^2] = (1/n) * sumof{n}{i=1}(Vi^2)
+       = (4^2 + 6^2 + 6^2 + 8^2 + 8^2 + 8^2 + 10^2 + 10^2 + 12^2) / 9
+       = 69.3333333333
+
+Var(V) = 69.3333333333 - 64 = 5.333
+
+
+(c)
+Compute the joint PMF of V and W.
+
+Answer:
+(V, W)		X=1	X=2	X=3
+Y=1		(4,0)	(6,1)	(8,2)
+Y=2		(6,-1)	(8,0)	(10,1)
+Y=3		(8,-2)	(10,-1)	(12,0)
+
+
+(d)
+Compute E[V|W>0].
+
+We can see all the values of V where W>0 are 6, 8, 10 from out joint PMF above.
+Using the same equation as above for E[V] we can calculate that:
+E[V|W>0] = (6 + 8 + 10) / 3 = 8
+
+
+
+QUESTION 2:
+We want to perform a survery of 'n' people, asking their answer to a sensitive question.
+We use the randomised response approach whereby each responded tosses a fair coin and if it
+comes up heads they respond with 'yes' and if tails, they respond truthfully 'yes' or 'no'.
+Assosciate with the i'th respondent a random variable Xi, which takes value 1 when the 
+person's truthful answer to the sensitive question is 'yes' and 0 otherwise. Assume that the
+Xi, i=1,2,...,n are independent and identically distributed with P(Xi=1) = p.
+
+(a)
+Let random variable Yi take value 1 when the i'th respondent answers 'yes' and 0 otherwise.
+Give an expression for E[Yi] in terms of E[Xi], and using this then rearrange to get
+E[Xi] in terms of E[Yi]. Hint: use the linearity of expectation.
+
+Answer:
+Probability coin comes up heads, otherwise answers truthfully with 'yes' with probability p.
+P(Yi=1) = 0.5 + (0.5)p 
+
+P(Yi=0) = 1 - P(Yi=1)
+	= 1 - (0.5 + (0.5)p)
+
+E[Yi] = 1 * P(Yi=1) + 0 * P(Yi=0)
+E[Yi] = 0.5 + (0.5)p
+
+E[Xi] = p
+So...
+E[Yi] = 0.5 + (0.5)*E[Xi]
+E[Yi] - 0.5 = (0.5)*E[Xi]
+E[Xi] = 2*E[Yi] - 1
+
+
+(b)
+Let random variable Z = sumof{n}{i=1}(Yi), be the number of respondents who answer 'yes'.
+Write an expression for the probability that out of 'n' respondents 'z' respond 'yes'.
+
+Answer:
+P(Z=z) = {n}choose{z} * P(Yi=1)^z * P(Yi=0)^(n-z)
+
+
+(c)
+Suppose we use Z/n as an estimate of q = E[Yi], where n is the total number of respondents. 
+Recalling that for two random variables W and V  we have E[W+V] = E[W] + E[V], show that:
+E[Z/n] = q.
+Using Chebyshev's inequality explain the weak law of large numbers and the behaviour of:
+|Z/n - q| as n becomes large.
+
+E[Z/n] = E[Yi]
+Z = sumof{n}{i=1}(Yi)
+Z = (Y1 + Y2 + ... + Yn)
+Z/n = Yi
+E[Z/n] = E[Yi]
+
+By Chebyshev's inequality we have:
+P(|X-u| >= n) <= Var(x)/n^2
+
+As n tends towards infinity, the probability will tend towards 0.
+
+
+(d)
+Using Z/n as an estimate of q, explain how you could use bootstrapping to estimate a confidence
+interval for the accuracy of this estimate.
+
+Answer:
+Bootstrapping involves:
+	1. Sampling from the training data.
+	2. Estimating θ 
+	3. Repeating and looking at distribution of θ values.
+
+Confidence interval:
+	- When a random variable lies in an interval a <= X <= b with a specified probability.
+
+
+
+QUESTION 3:
+Diana the Daredevil is trying to break the world land-speed record using her rocket-powered
+motorcycle. 
+In order to do so, she needs to cover more than 500 metres in 10 seconds. 
+If her motorcycle has Z pounds of rocket fuel to start, then it travels a distance of: 
+X=50*sqrt(Z) metres in 10 seconds. 
+
+(a)
+Suppose that the amount of rocket fuel Z is a random variable uniformly ditributed over [50,150].
+Compute the CDF of the distance X.
+
+Answer:
+F_X(x) = P(X <= x) = P(50*sqrt(Z) <= x) = P(Z <= (x/50)^2)
+
+PDF:
+	   0.......... x < 50*sqrt(50)
+f_X(x) = { (x/50)^2... 50*sqrt(50) < x <= 50*sqrt(150)
+	   0.......... x > 50*sqrt(150)
+CDF:
+	   0............ x < 50*sqrt(50)
+F_X(x) = { ((x/50)^2-50)/100... 50*sqrt(50) < x <= 50*sqrt(150)
+	   1............ x > 50*sqrt(150)
+
+***need to understand this***
+
+
+(b)
+Compute the probability that Dianna breaks the world record on any given trial.
+
+X = 50*sqrt(Z)
+500m to break record..
+500 = 50*sqrt(Z)
+sqrt(Z) = 10
+Z = 100... This is the minimum value of Z to break the recod.
+
+Z is a random variable uniformly ditributed over [50,150].
+
+P(Z >= 100 ) = 50/100 = 0.5
+
+Could also do this...
+P(X > 500) = 1 - Fx(500) = 1 - 0.5 = 0.5
+
+
+(c)
+Suppose that Dianna is allowed to take a total of 'n' trials in order to try and break the 
+record. 
+The amount of rocket fuel at the start is independent from trial to trial. 
+How large does n have to be in order for Diana to have a better than 90% chance of breaking the
+record over the n trials?
+
+Answer:
+Let Y denote the maximum distance traveled by her motorcycle.
+We have that Y = max(X1, X2, ..., Xn), where Xi are independent and equally distributed random
+variables with Xi the distance travelled in trial i.
+
+Fy(y) = P(Y <= y) = P(max(X1, X2, ..., Xn) <= y)
+      = P(X1 <= y and X2 <= y and ... Xn <= y)
+      = P(X1 <= y) * P(X2 <= y) * ... * P(Xn <= y)
+      = Fx(y)^n
+
+Therefore,
+P(Y > 500) = 1 - Fy(500) = 1 - Fx(500)^n = 1 - 0.5^n
+
+Minimum n for which 1-0.5^n >= 0.9 is n=4.
+
