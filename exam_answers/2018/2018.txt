@@ -53,3 +53,125 @@ P(C increase) = P(C increase | D increase)P(D increase) + P(C increase|D decreas
 	      = (0.2 * 0.5) + (0.1 * 0.5)
 	      = 0.1 + 0.05
 	      = 0.15
+
+
+
+QUESTION 2:
+Suppose you play a game where four 6-sided fair dice are rolled. 
+Let X be equal to the minimum of the four values rolled. 
+It costs 2 euro to play the game and you win X euro.
+
+(i)
+Calculate P(X>=k) as a function of k=1,2,...,6
+
+Answer:
+P(X>=1) = 1...(The minimum value will certainly be greater or equal to 1)
+P(X>=2) = 5/6 * 5/6 * 5/6 * 5/6 = 0.833...(Chance of rolling anything but 1 on all)
+P(X>=3) = (4/6)^4 = 0.667..(Same idea)
+P(X>=4) = (3/6)^4 = 0.0625 
+P(X>=5) = (2/6)^4 = 0.01234
+P(X>=6) = (1/6)^4 = 0.00077
+
+
+(ii)
+Assuming you know P(X>=k), show how to calculate the PMF of X.
+
+Answer:
+P(X=6) = 0.00077
+P(X=5) = P(X>=5) - P(X>=6) = 0.01157
+P(X=4) = P(X>=4) - P(X>=5)....
+and so on.
+
+
+(iii)
+State the definition of the expected value.
+
+Answer:
+E[X] = sumof{n}{i=1}(P(xi)*xi)
+
+
+(iv)
+Calculate E[X].
+
+Answer:
+E[X] = 6*(0.00077) + 5*(0.01157) + 4*()... so on
+
+
+(v)
+If you play the game many times do you expect to make a profit?
+Explain your reasoning.
+What is the amount cost to play that would make you break even?
+
+Answer:
+If the expected value is less than 2, then no, else yes. 
+The amount cost to play that would make you break even would be the expected value. 
+
+
+
+QUESTION 3:
+This is the same question as the sample paper.. answers can be found there.
+
+
+
+QUESTION 4:
+Suppose we mark the answers of 200 students to each of 10 exam questions.
+Let Sij  be an indicator variable which is 1 if student i answered question j correctly, and 
+-1 otherwise.
+You ovserve all of the answers for all students. Assume that:
+
+P(Sij=y|ai,dj) = 1/(1+exp(-y(ai-dj)))
+
+Where ai is a parameter that represents the students ability and dj is a parameter which 
+represents the questions difficulty. 
+
+(i)
+Give an expression for the log-likelihood of this exam data. 
+(Hint: this is an example of a logistic regression model)
+
+Answer:
+Todo.. solutions are very messy..
+
+
+(ii)
+Outline how gradient descent might be used to find the maximum likelihood estimates for the 
+unknown parameters ai and dj.
+
+Answer:
+The ML estimates select the parameters ai and dj to maximise the likelihood L. 
+Starting from an initial estimate, these values can be found by iteratively updating the 
+estimates such that L decreases after each update until the decrease in L becomes small enough.
+We can find updates that decrease L by local search or by taking a step in the direction of
+the derivatives of L wrt ai and dj.
+
+
+(iii)
+With reference to Bayes Rule, explain what is meant by the likelihood, prior and posterior.
+
+Answer:
+For random events E and F, Bayes rule states P(E|F) = P(F|E)P(E) / P(F)
+Where:
+	P(E|F) is the posterior
+	P(F|E) is the likelihood
+	P(E) is the prior
+
+
+(iv)
+Explain how the maximum a posteriori (MAP) estimate of a parameter differs from the maximum 
+likelihood estimate.
+
+Answer:
+In a MAP estimate, the parameter values are selected to maximise the posterior probability
+P(parameter|data) rather than the likelihood P(data|parameters). They should both converge
+as N increases.
+
+
+(v)
+How oculd you incorporate knowledge of the prior probability distribution of parameters ai,
+into the above model to obtain a MAP estimate. 
+
+Answer:
+By Bayes, the posterior is proportional to: 
+P(Sij=sij, i=1,...,200, j=1,...10 | ai, dj, sij, i=1,...200, j=1,...,10)P(ai, i=1,...,200).
+The MAP estimate of the ai, i=1,...,200 maximises this. 
+
+
